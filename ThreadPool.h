@@ -11,6 +11,8 @@
 #include <functional>
 #include <stdexcept>
 
+namespace progschj {
+
 class ThreadPool {
 public:
     ThreadPool(size_t);
@@ -93,6 +95,8 @@ inline ThreadPool::~ThreadPool()
     condition.notify_all();
     for(std::thread &worker: workers)
         worker.join();
+}
+
 }
 
 #endif
